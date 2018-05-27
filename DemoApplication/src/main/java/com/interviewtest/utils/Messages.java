@@ -12,6 +12,5 @@ public enum Messages {
 
     public static class SuccessfulMessages {
         public static final String EMPTY_MESSAGE = "";
-        public static final String AUTHENTICATOR_REMOVED_SUCCESSFULLY = "Authenticator was removed successfully.";
     }
 }
