@@ -1,6 +1,7 @@
 package com.interviewtest.apidoc;
 
 import com.fasterxml.classmate.TypeResolver;
+import com.google.common.collect.Ordering;
 import com.interviewtest.config.profiles.DocsProfile;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
@@ -12,13 +13,12 @@ import springfox.documentation.builders.PathSelectors;
 import springfox.documentation.builders.RequestHandlerSelectors;
 import springfox.documentation.builders.ResponseMessageBuilder;
 import springfox.documentation.schema.ModelRef;
-import springfox.documentation.service.ApiInfo;
-import springfox.documentation.service.ApiKey;
-import springfox.documentation.service.Contact;
+import springfox.documentation.service.*;
 import springfox.documentation.spi.DocumentationType;
 import springfox.documentation.spring.web.plugins.Docket;
 import springfox.documentation.swagger2.annotations.EnableSwagger2;
 
+import javax.annotation.Nullable;
 import java.lang.reflect.WildcardType;
 import java.time.LocalDate;
 import java.util.ArrayList;
@@ -68,5 +68,30 @@ public class SwaggerConfig {
 
     private static ApiKey apiKey() {
         return new ApiKey("mykey", "api_key", "header");
+    }
+
+    /**
+     * Ordering
+     */
+    private static final class OperationOrdering extends Ordering<Operation> {
+        @Override
+        public int compare(@Nullable Operation o1, @Nullable Operation o2) {
+            // TODO implement ordering
+            return 0;
+        }
+    }
+
+
+    /**
+     * Ordering
+     */
+    private static final class ApiListingReferenceOrdering extends Ordering<ApiListingReference> {
+
+        @Override
+        public int compare(@Nullable ApiListingReference r1, @Nullable ApiListingReference r2) {
+            // TODO implement ordering
+            return 0;
+        }
+
     }
 }
